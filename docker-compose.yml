@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  dashboard:
+    # Build the image from the Dockerfile in the current directory
+    build: .
+    # Name the container for easy reference
+    container_name: baserow-dashboard
+    # Always restart the container if it stops, including on server reboot
+    restart: always
+    # Map the host port 49193 to the container's internal port 8000
+    ports:
+      - "49193:8000"
+    # Mount the settings file as a volume.
+    # This lets you change settings.yaml on the server without rebuilding the image.
+    volumes:
+      - ./settings.yaml:/app/settings.yaml
