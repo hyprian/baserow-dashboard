@@ -1,0 +1,28 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baserow Data Freshness</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- ... other font links ... -->
+</head>
+<body>
+    <header>
+        <h1>Baserow Data Freshness Dashboard</h1>
+        <p id="last-updated">Last Updated: <span id="timestamp"></span></p>
+    </header>
+    
+    <!-- ADD THIS LOADER ELEMENT -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    
+    <main id="dashboard-container"></main>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

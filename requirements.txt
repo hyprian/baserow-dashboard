@@ -1,0 +1,7 @@
+# requirements.txt
+
+Flask
+gunicorn
+pandas
+requests
+PyYAML

@@ -1,0 +1,65 @@
+# settings.yaml
+
+baserow:
+  base_url: http://129.159.18.115:49161
+  api_token: PfMJRl1I6CVwHPPLQ578vHmxvCR6fVMB
+
+groups:
+  - name: "CRM-Shopify Data"
+    tables:
+      "Shopify Orders":
+        type: single # This is a standard, single-card table
+        table_id: 739
+        date_column:
+          name: 'Created at'
+          dayfirst: false
+        last_updated_column:
+          name: 'Updated_at'
+          dayfirst: false
+      
+      "Ad Spends":
+        type: single
+        table_id: 738
+        date_column:
+          name: 'Date'
+          dayfirst: true 
+
+      "Shipping Status":
+        type: single
+        table_id: 735
+        date_column:
+          name: 'Latest Order Status Timestamp'
+          dayfirst: false # As you correctly discovered!
+
+  - name: "RMS Data" 
+    tables:
+      "Processed Sales": # This is a logical name for the data source
+        type: panels # This tells our script to treat this entry differently
+        table_id: 713
+        # Define the date columns for all panels from this table
+        date_column:
+          name: 'Sale Date'
+          dayfirst: false # Format is YYYY-MM-DD
+        last_updated_column:
+          name: 'Data Processed Timestamp'
+          dayfirst: true # Format is DD-MM-YYYY HH:MM
+        # Define how to split the table into panels
+        panel_config:
+          filter_columns: ['Platform', 'Account Name']
+          panels:
+            - card_title: 'Amazon - Main Account'
+              filter_values: ['Amazon', 'Main Account']
+            - card_title: 'Flipkart - Account CSTE'
+              filter_values: ['Flipkart', 'Account CSTE (FK)']
+            - card_title: 'Flipkart - Account Giantleap'
+              filter_values: ['Flipkart', 'Account Giantleap (FK)']
+            - card_title: 'FirstCry - Main Account'
+              filter_values: ['FirstCry', 'Main Account (FirstCry)']
+            - card_title: 'Meesho - Account CSTE'
+              filter_values: ['Meesho', 'Account CSTE (MS)']
+            - card_title: 'Meesho - Account Rudra'
+              filter_values: ['Meesho', 'Account Rudra (MS)']
+            - card_title: 'Shopify - Fusked'
+              filter_values: ['Shopify', 'Fusked (Shopify)']
+            - card_title: 'Shopify - CSTE'
+              filter_values: ['Shopify', 'CSTE (Shopify)']

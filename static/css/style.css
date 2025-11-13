@@ -1,0 +1,123 @@
+/* static/css/style.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-weight: 700;
+    color: #1a2c4e;
+}
+
+#last-updated {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* New Group Styles */
+.data-group {
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+}
+
+.group-title {
+    font-size: 1.8em;
+    font-weight: 300;
+    color: #1a2c4e;
+    border-bottom: 2px solid #dde2ea;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header h2 {
+    margin-top: 0;
+    font-size: 1.3em;
+    color: #1a2c4e;
+}
+
+.date-range {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    font-size: 1.1em;
+}
+
+.date-label {
+    font-size: 0.8em;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.date-value {
+    font-weight: 700;
+    color: #333;
+}
+
+/* New Card Footer for Last Updated */
+.card-footer {
+    border-top: 1px solid #f0f2f5;
+    padding-top: 10px;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #777;
+    text-align: right;
+}
+
+/* --- LOADER STYLES --- */
+#loader {
+    position: fixed; /* Sits on top of all content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(240, 242, 245, 0.8); /* Semi-transparent background */
+    display: flex; /* Use flexbox to center the spinner */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensures it's on top */
+    transition: opacity 0.3s;
+}
+
+.spinner {
+    border: 5px solid #dde2ea; /* Light grey border */
+    border-top: 5px solid #1a2c4e; /* Dark blue for the spinning part */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
